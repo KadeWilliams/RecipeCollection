@@ -1,11 +1,11 @@
-import Navbar from "./components/Navbar"
+import MainLayout from "./Layouts/MainLayout"
 
 function App() {
 
   return (
     <>
-      <Navbar/>
-      <h1>RecipeCollection</h1>
+      <MainLayout>
+      </MainLayout>
     </>
   )
 }
