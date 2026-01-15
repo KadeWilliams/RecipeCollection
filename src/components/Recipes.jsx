@@ -52,6 +52,7 @@ const Recipe = ({recipe}) => {
 }
 
 const Recipes = ({recipes, title}) => {
+  console.error(recipes);
   return (
     <>
         <h1>{title}</h1>
