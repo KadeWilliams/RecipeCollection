@@ -1,4 +1,15 @@
+import { useState, useEffect } from "react";
 const RecipePage = () => {
+  const [job, setJob] = useState(null);
+
+  useEffect(() => {
+    const fetchJob = async () => {
+      const apiUrl = '';
+    };
+
+    fetchJob();
+  }, []);
+
   return (
     <div>RecipePage</div>
   )
