@@ -1,35 +1,16 @@
-# Recipe Collection 
+# React + Vite
 
-The initial conceit of this app was to be a place to store information for my back log of recipes while getting myself some experience using React.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-I'm hoping that it can at least serve that purpose at the lowest level. 
+Currently, two official plugins are available:
 
-I'm trying to keep the scope of this somewhat limited in the beginning. 
-I can feel it growing in my mind quite quickly honestly, much quicker than I'll be able to implement all of the features I might want it to have. 
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-So for now I'm going to implement these ***basic*** features. 
+## React Compiler
 
-Elements: 
-- Pages
-    - [ ] HomePage
-    - [ ] RecipePage
-        - If the data coming through can I have this page act as the "Add" page
-    - [ ] Search
-Components
-- [ ] Recipes
-- [ ] Recipe
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Features (sorted by page): 
-- Recipes
-    - CRUD Functions
-        - [ ] View
-        - [ ] Edit
-        - [ ] Delete
-        - [ ] Save 
-    -  
-- Search
-    - [ ] Chefs
-    - [ ] Books
-    - [ ] Websites
-    - [ ] Ingredients
-    - [ ] Season
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
