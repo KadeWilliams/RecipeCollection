@@ -2,7 +2,7 @@ import RecipeForm from "../components/RecipeForm"
 import { addRecipe } from "../actions/recipe.actions"
 
 const AddRecipePage = () => {
-const EMPTY_RECIPE = {
+  const EMPTY_RECIPE = {
       title: "",
       description: "",
       link: "",
@@ -28,7 +28,7 @@ const EMPTY_RECIPE = {
       steps: [
         "",
       ]
-    }
+  }
   return (
     <>
       <div>AddRecipePage</div>

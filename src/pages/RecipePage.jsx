@@ -37,9 +37,7 @@ const RecipePage = () => {
           name="id"
           readOnly
         />
-        <button 
-          className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
-        >
+        <button>
           Delete recipe 
         </button>
       </form>
