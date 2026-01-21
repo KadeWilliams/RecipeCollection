@@ -21,6 +21,7 @@ const RecipeForm = ({recipeFunction, recipe }) => {
       navigate("/")
     }
   };
+
   const handleIngredientChange = (index, field, value) => {
     setRecipeData(prev => {
       const newIngredients = [...prev.ingredients];
@@ -31,6 +32,60 @@ const RecipeForm = ({recipeFunction, recipe }) => {
       return { ...prev, ingredients: newIngredients };
     })
   };
+
+
+  const addIngredient = () => {
+    setRecipeData(prev => ({
+      ...prev, 
+      ingredients: [
+        ...prev.ingredients,
+        {
+          ingredientName: "",
+          amount: 0,
+          unit: "",
+          isOptional: false,
+          note: "" 
+        },
+      ]
+    }));
+  };
+
+  const removeIngredient = (index) => {
+    setRecipeData(prev => ({
+      ...prev,
+      ingredients: prev.ingredients.filter((_, i) => i!==index),
+    }))
+  };
+
+  // const handleStepChange = (index, value) => {
+  //   setRecipeData(prev => {
+  //     const newStep = [...prev.steps];
+  //     newStep[index] = [
+  //       ...newStep[index],
+  //       value
+  //     ]
+  //     return {...prev, steps: newStep}
+  //   })
+  // }
+  // const addStep = () => {
+  //   setRecipeData(prev => {
+  //     console.log(prev.steps);
+  //   })
+  //   // setRecipeData(prev => ({
+  //   //   ...prev, 
+  //   //   steps:[
+  //   //     ...prev.steps,
+  //   //   ],
+  //   // }))
+  // };
+  // const removeStep = (index) => { 
+  //   // console.log(index,'removing step')
+  //   setRecipeData(prev => ({
+  //     ...prev, 
+  //     steps: prev.steps.filter((_, i) => i !== index),
+  //   }))
+  // };
+
   return (
     <>
     <div>RecipeForm</div>
@@ -164,8 +219,36 @@ const RecipeForm = ({recipeFunction, recipe }) => {
                  onChange={(e) => handleIngredientChange(index, 'note', e.target.value)}
                  placeholder='Notes'
                />
+               <button
+                type="button"
+                onClick={() => removeIngredient(index)}
+               >Remove</button>
              </div>
            ))}
+            <button
+            type="button"
+            onClick={addIngredient}
+            >Add</button>
+         </div>
+         <div>
+           {/* { recipeData.steps.map((step, index) => (
+             <div key={index}> 
+               <input
+                 type='text'
+                 value={step}
+                 placeholder='Step'
+                 onChange={(e) => handleStepChange(index, e.target.value)}
+               />
+               <button
+                type="button"
+                onClick={() => removeStep(index)}
+               >Remove</button>
+             </div>
+           ))}*/}
+            <button
+            type="button"
+            // onClick={addStep}
+            >Add</button> 
          </div>
          <button type="submit">Save</button>
        </form>
