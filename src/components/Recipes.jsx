@@ -12,7 +12,6 @@ const Recipes = () => {
       try {
         const res = await fetch(apiUrl);
         const data = await res.json();
-        console.log(data);
         setRecipeList(data);
       } catch (e) {
         console.error(e);

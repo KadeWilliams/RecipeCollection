@@ -8,7 +8,7 @@ const RecipePage = () => {
   const navigate = useNavigate();
 
   const [state, formAction] = useActionState(deleteRecipe, {
-    success: true,
+    success: false,
     message: '',
   })
 
@@ -28,12 +28,27 @@ const RecipePage = () => {
 
 
   return (
-    <div>{recipe.title}</div>
+    <>
+      <form action={formAction}>
+        <input 
+          value={recipe.id}
+          hidden 
+          id="id"
+          name="id"
+          readOnly
+        />
+        <button 
+          className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
+        >
+          Delete recipe 
+        </button>
+      </form>
+    </>
   )
 }
 
 const recipeLoader = async ({params}) => {
-  const res = await fetch(`api/recipes/${params.id}`);
+  const res = await fetch(`/api/recipes/${params.id}`);
   const data = await res.json();
   return data;
 };
