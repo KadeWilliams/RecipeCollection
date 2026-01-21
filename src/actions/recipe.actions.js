@@ -26,6 +26,22 @@ const deleteRecipe = async (previousState, formData) => {
 };
 
 const editRecipe = async (previousState, formData) => {
+  const ingredientIndices = [];
+  for (let [key] of formData.entries()) {
+    if (key.startsWith('amount_')) {
+      const index = key.split('_')[1];
+      ingredientIndices.push(index);
+    }
+  };
+
+  const ingredients = ingredientIndices.map(index => ({
+    ingredientName: formData.get(`ingredientName_${index}`),
+    amount: formData.get(`amount_${index}`),
+    unit: formData.get(`unit_${index}`),
+    isOptional: formData.get(`isOptional_${index}`),
+    note: formData.get(`note_${index}`),
+  }))
+
   const fields = {
     id: formData.get('id'),
     title: formData.get('title'),
@@ -38,18 +54,10 @@ const editRecipe = async (previousState, formData) => {
     isFavorite: formData.get('isFavorite'),
     cooked: formData.get('cooked'),
     dateCooked: formData.get('dateCooked'),
-    meal: formData.get('meal'),
-    season: formData.get('season'),
+    meal: formData.getAll('meal'),
+    season: formData.getAll('season'),
     chef: formData.get('chef'),
-    ingredients: [
-      {
-        ingredientName: formData.get('ingredientName'),
-        amount: formData.get('amount'),
-        unit: formData.get('unit'),
-        isOptional: formData.get('isOptional'),
-        note: formData.get('note'),
-      }
-    ]
+    ingredients: ingredients, 
   } 
   try {
     console.log(fields)

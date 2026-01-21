@@ -5,7 +5,6 @@ import { editRecipe } from "../actions/recipe.actions";
 const EditRecipePage = () => {
   const recipe = useLoaderData();
   const [recipeData, setRecipeData] = useState(recipe);
-  console.log(recipeData);
   const {id} = useParams();
 
   const [state, formAction] = useActionState(editRecipe, {
@@ -19,6 +18,10 @@ const EditRecipePage = () => {
   }, [state]);
 
   const handleIngredientChange = (index, field, value) => {
+    // setRecipeData(prev => ({
+    //   ...prev,
+    //   ingredients: prev.ingredients.map
+    // }));
     const newIngredients = recipeData.ingredients.map((ing, i) => {
       if (i === index) {
         return { ...ing, [field]: value};
@@ -26,7 +29,7 @@ const EditRecipePage = () => {
       return ing;
     });
 
-    setRecipeData({...recipe, ingredients: newIngredients});
+    setRecipeData({...recipeData, ingredients: newIngredients});
   };
 
 
