@@ -25,55 +25,42 @@ const deleteRecipe = async (previousState, formData) => {
   }
 };
 
-const editRecipe = async (previousState, formData) => {
-  const ingredientIndices = [];
-  for (let [key] of formData.entries()) {
-    if (key.startsWith('amount_')) {
-      const index = key.split('_')[1];
-      ingredientIndices.push(index);
-    }
-  };
-
-  const ingredients = ingredientIndices.map(index => ({
-    ingredientName: formData.get(`ingredientName_${index}`),
-    amount: formData.get(`amount_${index}`),
-    unit: formData.get(`unit_${index}`),
-    isOptional: formData.get(`isOptional_${index}`),
-    note: formData.get(`note_${index}`),
-  }))
-
-  const fields = {
-    id: formData.get('id'),
-    title: formData.get('title'),
-    description: formData.get('description'),
-    link: formData.get('link'),
-    cookbook: formData.get('cookbook'),
-    cookbookImage: formData.get('cookbookImageUrl'),
-    page: formData.get('page'),
-    recipeImageUrl: formData.get('recipeImageUrl'),
-    isFavorite: formData.get('isFavorite'),
-    cooked: formData.get('cooked'),
-    dateCooked: formData.get('dateCooked'),
-    meal: formData.getAll('meal'),
-    season: formData.getAll('season'),
-    chef: formData.get('chef'),
-    ingredients: ingredients, 
-  } 
+const editRecipe = async (previousState, recipeData) => {
   try {
-    console.log(fields)
-    // const _res = await fetch(`/api/recipes/${fields.id}`, {
-    //   method: 'PUT',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(fields),
-    // });
+    const res = await fetch(`/api/recipes/${recipeData.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(recipeData)
+    })
+
+    if (!res.ok) throw new Error('Failed to update recipe');
+
+    return { success: true, message: 'Successfully updated recipe'};
   } catch (e) {
     console.error(e);
-    return {success: false, message: 'Error occurred updating recipe'}
+    return { success: false, message: 'Error occurred updating the recipe'};
   }
+};
 
-  return {success: false, message: 'recipe updated'}
+const addRecipe = async (previousState, recipeData) => {
+  try {
+    const res = await fetch('/api/recipes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(recipeData),
+    })
+
+    if (!res.ok) throw new Error('Failed to add new recipe');
+
+    return { success: true, message: 'Successfully added recipe'};
+  } catch (e) {
+    console.error(e);
+    return { success: false, message: 'Error occurred adding the recipe'};
+  }
 }
 
-export { deleteRecipe, editRecipe }
+export { deleteRecipe, editRecipe, addRecipe }

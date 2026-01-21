@@ -11,8 +11,16 @@
       "isFavorite": true,
       "cooked": true,
       "dateCooked": "2026-01-14",
-      "meal": ["dinner", "lunch"],
-      "season": ["summer", "fall", "winter", "spring"],
+      "meal": [
+        "dinner",
+        "lunch"
+      ],
+      "season": [
+        "summer",
+        "fall",
+        "winter",
+        "spring"
+      ],
       "chef": "Justine Doiron",
       "ingredients": [
         {
@@ -96,8 +104,16 @@
       "isFavorite": true,
       "cooked": true,
       "dateCooked": "2026-01-14",
-      "meal": ["dinner", "lunch"],
-      "season": ["summer", "fall", "winter", "spring"],
+      "meal": [
+        "dinner",
+        "lunch"
+      ],
+      "season": [
+        "summer",
+        "fall",
+        "winter",
+        "spring"
+      ],
       "chef": "Justine Doiron",
       "ingredients": [
         {
@@ -151,8 +167,8 @@
         },
         {
           "ingredientName": "spray oil",
-          "amount": "as needed",
-          "unit": null,
+          "amount": null,
+          "unit": "as needed",
           "isOptional": false,
           "note": null
         }

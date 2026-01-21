@@ -17,7 +17,7 @@ const RecipePage = () => {
       if (state.message) {
         console.log(state.message);
       }
-      navigate('/recipes')
+      navigate('/')
     } else {
       if (state.message) {
         console.error(state.message);

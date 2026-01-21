@@ -3,10 +3,10 @@ import '../styles/flip.css';
 import { Link } from 'react-router-dom';
 
 const Recipe = ({recipe}) => {
-  const [showImage, setShowImage] = useState(recipe.recipeImage ? true : false);
+  const [showImage, setShowImage] = useState(recipe.recipeImageUrl ? true : false);
 
   const handleFlip = () => {
-    if (!recipe.recipeImage) {
+    if (!recipe.recipeImageUrl) {
       return;
     }
     setShowImage(!showImage);
@@ -18,12 +18,12 @@ const Recipe = ({recipe}) => {
 
 
   return (
-    <div style={recipe.recipeImage ? { cursor:"pointer"} : {cursor: "default"}}className={`flip-card ${!showImage ? 'flipped' : ''}`} onClick={handleFlip}>
+    <div style={recipe.recipeImageUrl ? { cursor:"pointer"} : {cursor: "default"}}className={`flip-card ${!showImage ? 'flipped' : ''}`} onClick={handleFlip}>
             <div className="flip-card-inner">
         <div className="flip-card-front">
           <img
             style={{ width: '18rem', height: '22rem' }}
-            src={recipe.recipeImage}
+            src={recipe.recipeImageUrl}
             alt={recipe.title}
           />
         </div>
