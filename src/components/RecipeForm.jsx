@@ -33,7 +33,6 @@ const RecipeForm = ({recipeFunction, recipe }) => {
     })
   };
 
-
   const addIngredient = () => {
     setRecipeData(prev => ({
       ...prev, 
@@ -57,34 +56,37 @@ const RecipeForm = ({recipeFunction, recipe }) => {
     }))
   };
 
-  // const handleStepChange = (index, value) => {
-  //   setRecipeData(prev => {
-  //     const newStep = [...prev.steps];
-  //     newStep[index] = [
-  //       ...newStep[index],
-  //       value
-  //     ]
-  //     return {...prev, steps: newStep}
-  //   })
-  // }
-  // const addStep = () => {
-  //   setRecipeData(prev => {
-  //     console.log(prev.steps);
-  //   })
-  //   // setRecipeData(prev => ({
-  //   //   ...prev, 
-  //   //   steps:[
-  //   //     ...prev.steps,
-  //   //   ],
-  //   // }))
-  // };
-  // const removeStep = (index) => { 
-  //   // console.log(index,'removing step')
-  //   setRecipeData(prev => ({
-  //     ...prev, 
-  //     steps: prev.steps.filter((_, i) => i !== index),
-  //   }))
-  // };
+  const handleStepChange = (index, value) => {
+  setRecipeData(prev => {
+
+    //flatten old steps into newSteps
+    const newSteps = [...prev.steps];
+
+    // set the index of the step you're updating to the input value 
+    newSteps[index] = value;
+
+    // return the new recipeData object to set the recipeData 
+    return { ...prev, steps: newSteps }
+  })
+  }
+   
+  const addStep = () => {
+    setRecipeData(prev => ({
+      ...prev,
+      steps: [
+        ...prev.steps,
+        ''
+      ]
+    }))
+
+  }
+
+  const removeStep = (index) => { 
+    setRecipeData(prev => ({
+      ...prev, 
+      steps: prev.steps.filter((_, i) => i !== index),
+    }))
+  };
 
   return (
     <>
@@ -228,10 +230,10 @@ const RecipeForm = ({recipeFunction, recipe }) => {
             <button
             type="button"
             onClick={addIngredient}
-            >Add</button>
+            >Add Ingredient</button>
          </div>
          <div>
-           {/* { recipeData.steps.map((step, index) => (
+           { recipeData.steps.map((step, index) => (
              <div key={index}> 
                <input
                  type='text'
@@ -244,11 +246,11 @@ const RecipeForm = ({recipeFunction, recipe }) => {
                 onClick={() => removeStep(index)}
                >Remove</button>
              </div>
-           ))}*/}
+           ))}
             <button
             type="button"
-            // onClick={addStep}
-            >Add</button> 
+            onClick={addStep}
+            >Add Step</button> 
          </div>
          <button type="submit">Save</button>
        </form>
