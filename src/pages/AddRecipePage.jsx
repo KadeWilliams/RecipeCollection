@@ -13,8 +13,8 @@ const AddRecipePage = () => {
       isFavorite: true,
       cooked: true,
       dateCooked: "",
-      meal: [""],
-      season: [""],
+      meals: [""],
+      seasons: [""],
       chef: "",
       ingredients: [
         {

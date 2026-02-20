@@ -27,7 +27,8 @@ const deleteRecipe = async (previousState, formData) => {
 
 const editRecipe = async (previousState, recipeData) => {
   try {
-    const res = await fetch(`/api/recipes/${recipeData.id}`, {
+    console.log(recipeData);
+    const res = await fetch(`/api/recipes`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -46,12 +47,13 @@ const editRecipe = async (previousState, recipeData) => {
 
 const addRecipe = async (previousState, recipeData) => {
   try {
+    console.log(recipeData);
     const res = await fetch('/api/recipes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(recipeData),
+      body: JSON.stringify(recipeData, booleanReplacer),
     })
 
     if (!res.ok) throw new Error('Failed to add new recipe');
@@ -61,6 +63,17 @@ const addRecipe = async (previousState, recipeData) => {
     console.error(e);
     return { success: false, message: 'Error occurred adding the recipe'};
   }
+}
+
+function booleanReplacer(key, value) {
+  if (typeof value === 'string') {
+    if (value.toLowerCase() === 'true') {
+      return true;
+    } else if (value.toLowerCase() === 'false') {
+      return false;
+    }
+  }
+  return value;
 }
 
 export { deleteRecipe, editRecipe, addRecipe }

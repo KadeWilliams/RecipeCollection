@@ -6,6 +6,7 @@ import { useActionState } from "react";
 
 const RecipeForm = ({recipeFunction, recipe }) => {
   const [recipeData, setRecipeData] = useState(recipe);
+  console.log(recipe);
   const navigate = useNavigate();
   const [state, _formAction, _isPending] = useActionState(recipeFunction, {
     success: false, 
@@ -16,7 +17,7 @@ const RecipeForm = ({recipeFunction, recipe }) => {
     e.preventDefault();
 
     const result = await recipeFunction(state, recipeData);
-
+    console.log(recipeData);
     if (result.success) {
       navigate("/")
     }
@@ -161,8 +162,11 @@ const RecipeForm = ({recipeFunction, recipe }) => {
 
        {/* TODO?: make an enum? */}
          <select 
-           value={[recipeData.meal]}
-           onChange={(e) => {setRecipeData(prev => ({...prev, meal: e.target.value}))}}
+           value={recipeData.meals}
+           onChange={(e) => {
+            const selectedValues = Array.from(e.target.selectedOptions, option => option.value)
+              setRecipeData(prev => ({...prev, meals:  selectedValues})
+            )}}
            multiple
          >
            <option>dinner</option>
@@ -175,9 +179,13 @@ const RecipeForm = ({recipeFunction, recipe }) => {
        {/* TODO?: make an enum? */}
          <select
            type='text'
-           value={[recipeData.season]}
-           onChange={(e) => {setRecipeData(prev => ({...prev, season: e.target.value}))}}
-           multiple={true}
+           value={recipeData.seasons}
+           //onChange={(e) => {setRecipeData(prev => ({...prev, seasons: [...prev.season, e.target.value]}))}}
+           onChange={(e) => {
+            const selectedValues = Array.from(e.target.selectedOptions, option => option.value)
+              setRecipeData(prev => ({...prev, seasons:  selectedValues})
+            )}}
+           multiple
          >
            <option>summer</option>
            <option>fall</option>

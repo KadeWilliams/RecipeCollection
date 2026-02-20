@@ -7,10 +7,15 @@ export default defineConfig({
   server: {
     port: 3000,
     proxy: {
+      //'/api': {
+      //  target: 'https://localhost:7014/api/recipes',
+      //  changeOrigin: true,
+      //  rewrite: (path) => path.replace(/^\/api/,'')
+      //}
       '/api': {
-        target: 'http://localhost:8000',
+        target: "https://localhost:7014",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/,'')
+        secure: false,
       }
     }
   }
