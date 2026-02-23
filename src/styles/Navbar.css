@@ -1,0 +1,95 @@
+.brutalist-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--black);
+  border-bottom: var(--border-thick);
+}
+
+.nav-ticker {
+  background: var(--yellow);
+  border-bottom: 2px solid var(--black);
+  overflow: hidden;
+  padding: 4px 0;
+  white-space: nowrap;
+}
+
+.ticker-text {
+  display: inline-block;
+  animation: ticker 30s linear infinite;
+  font-family: var(--font-vt);
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: var(--black);
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.nav-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--yellow);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.logo-bracket {
+  color: var(--red);
+  font-size: 2.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent;
+  transition: all 0.15s;
+  text-transform: uppercase;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  border-color: var(--yellow);
+  color: var(--yellow);
+}
+
+.nav-link-cta {
+  background: var(--red);
+  color: var(--white);
+  border: 2px solid var(--red);
+  box-shadow: 3px 3px 0 var(--yellow);
+}
+
+.nav-link-cta:hover {
+  background: var(--yellow);
+  color: var(--black);
+  border-color: var(--yellow);
+  box-shadow: 3px 3px 0 var(--red);
+  transform: translate(-1px, -1px);
+}

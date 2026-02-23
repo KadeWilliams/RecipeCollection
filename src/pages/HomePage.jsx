@@ -1,11 +1,11 @@
-import Recipes from "../components/Recipes"
+import Recipes from "../components/Recipes";
 
 const HomePage = () => {
   return (
     <>
-    <Recipes />
+      <Recipes />
     </>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

@@ -66,3 +66,77 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=VT323&display=swap");
+
+:root {
+  --black: #0a0a0a;
+  --white: #f5f0e8;
+  --yellow: #ffe600;
+  --red: #ff2400;
+  --blue: #0028ff;
+  --green: #00ff41;
+  --border: 3px solid var(--black);
+  --border-thick: 5px solid var(--black);
+  --shadow: 6px 6px 0px var(--black);
+  --shadow-lg: 10px 10px 0px var(--black);
+  --font-display: "Bebas Neue", sans-serif;
+  --font-mono: "Space Mono", monospace;
+  --font-vt: "VT323", monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--white);
+  color: var(--black);
+  font-family: var(--font-mono);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      rgba(0, 0, 0, 0.06) 39px,
+      rgba(0, 0, 0, 0.06) 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 39px,
+      rgba(0, 0, 0, 0.06) 39px,
+      rgba(0, 0, 0, 0.06) 40px
+    );
+  min-height: 100vh;
+}
+
+a {
+  color: var(--black);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--white);
+  border-left: 2px solid var(--black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--black);
+}

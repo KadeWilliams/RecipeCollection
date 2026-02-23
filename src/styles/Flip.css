@@ -23,19 +23,22 @@
 }
 
 /* Position the front and back sides */
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden; /* Prevents the back side from showing through the front */
   backface-visibility: hidden;
-  border-radius: .25rem; /* Match bootstrap card's default border radius */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Optional: adds a subtle shadow */
+  border-radius: 0.25rem; /* Match bootstrap card's default border radius */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Optional: adds a subtle shadow */
 }
 
 /* Style the back side (initially hidden, then rotated into view) */
 .flip-card-back {
-  transform: rotateY(180deg); /* Start rotated 180deg so it faces the correct direction when flipped */
+  transform: rotateY(
+    180deg
+  ); /* Start rotated 180deg so it faces the correct direction when flipped */
   background-color: #fff; /* Ensure back has a background color */
 }
 
