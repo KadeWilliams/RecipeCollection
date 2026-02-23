@@ -1,0 +1,487 @@
+/* ── HERO ── */
+.rp-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.rp-hero {
+  position: relative;
+  border: var(--border-thick);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2rem;
+  overflow: hidden;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: var(--black);
+}
+
+.rp-hero-img {
+  position: absolute;
+  inset: 0;
+}
+
+.rp-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.05) saturate(0.85);
+}
+
+.rp-hero-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+.rp-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem 2rem 2rem;
+  color: var(--white);
+}
+
+.rp-hero-content-no-img {
+  color: var(--white);
+  padding: 2rem;
+}
+
+.rp-nav-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.rp-back-link,
+.rp-edit-link {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 0.35rem 0.75rem;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: var(--white);
+  transition: all 0.12s;
+}
+
+.rp-back-link:hover {
+  border-color: var(--yellow);
+  color: var(--yellow);
+  background: transparent;
+}
+
+.rp-edit-link {
+  border-color: var(--yellow);
+  color: var(--yellow);
+}
+
+.rp-edit-link:hover {
+  background: var(--yellow);
+  color: var(--black);
+}
+
+/* Tags */
+.rp-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.rp-tag {
+  font-family: var(--font-vt);
+  font-size: 0.9rem;
+  padding: 1px 8px;
+  letter-spacing: 0.08em;
+  border: 1px solid;
+}
+
+.rp-tag--meal {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--white);
+}
+
+.rp-tag-season {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.rp-tag-fav {
+  background: var(--red);
+  color: var(--white);
+  border-color: var(--red);
+}
+
+.rp-tag-cooked {
+  background: var(--green);
+  color: var(--black);
+  border-color: var(--green);
+}
+
+/* Title */
+.rp-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+/* Meta row */
+.rp-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.rp-meta-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.rp-meta-label {
+  font-family: var(--font-vt);
+  font-size: 0.9rem;
+  color: var(--red);
+  letter-spacing: 0.05em;
+}
+
+.rp-meta-value {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.05em;
+}
+
+/* ── BODY ── */
+.rp-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.rp-section {
+  border: var(--border-thick);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.rp-section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--black);
+  color: var(--yellow);
+  font-family: var(--font-vt);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  padding: 0.4rem 1rem;
+  border-bottom: var(--border);
+}
+
+.rp-section-label-danger {
+  color: var(--red);
+}
+
+.rp-section-count {
+  margin-left: auto;
+  font-family: var(--font-vt);
+  background: var(--green);
+  color: var(--black);
+  padding: 0 8px;
+  font-size: 0.85rem;
+}
+
+/* Description */
+.rp-description-section {
+}
+
+.rp-description {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  padding: 1.5rem;
+  color: var(--black);
+}
+
+.rp-source-link {
+  display: inline-block;
+  margin: 0 1.5rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--blue);
+  border-bottom: 2px solid var(--blue);
+  padding-bottom: 2px;
+  transition: all 0.12s;
+}
+
+.rp-source-link:hover {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+/* Two column layout */
+.rp-two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 700px) {
+  .rp-two-col {
+    grid-template-columns: 1fr 260px;
+    align-items: start;
+  }
+}
+
+/* Ingredients */
+.rp-ingredients {
+  padding: 0;
+}
+
+.rp-ing-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: auto auto;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+  padding: 0.6rem 1rem;
+  transition: background 0.1s;
+}
+
+.rp-ing-row:last-child {
+  border-bottom: none;
+}
+
+.rp-ing-row:hover {
+  background: rgba(255, 230, 0, 0.1);
+}
+
+.rp-ing-row-optional {
+  opacity: 0.65;
+}
+
+.rp-ing-amount {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--black);
+  line-height: 1;
+  align-self: center;
+}
+
+.rp-ing-unit {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.rp-ing-name {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rp-optional-badge {
+  font-family: var(--font-vt);
+  font-size: 0.75rem;
+  background: rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0 4px;
+  letter-spacing: 0.05em;
+}
+
+.rp-ing-note {
+  grid-column: 2 / 3;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: rgba(0, 0, 0, 0.5);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* Cookbook aside */
+.rp-cookbook-aside .rp-section-label {
+  /* inherits */
+}
+
+.rp-cookbook-card {
+  overflow: hidden;
+}
+
+.rp-cookbook-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  border-bottom: var(--border);
+  filter: grayscale(20%);
+}
+
+.rp-cookbook-info {
+  padding: 0.75rem 1rem;
+}
+
+.rp-cookbook-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.rp-cookbook-page {
+  font-family: var(--font-vt);
+  font-size: 0.9rem;
+  color: var(--red);
+  letter-spacing: 0.1em;
+}
+
+/* Steps */
+.rp-steps {
+  counter-reset: steps;
+}
+
+.rp-step {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.rp-step:last-child {
+  border-bottom: none;
+}
+
+.rp-step-num {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  line-height: 1;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--yellow);
+  border-right: var(--border);
+  padding: 1rem 0.5rem;
+  color: var(--black);
+  flex-shrink: 0;
+}
+
+.rp-step:nth-child(even) .rp-step-num {
+  background: var(--black);
+  color: var(--yellow);
+}
+
+.rp-step-text {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  padding: 1rem 1.25rem;
+  align-self: center;
+}
+
+/* Danger zone */
+.rp-danger-zone {
+  border: var(--border-thick);
+  border-color: var(--red);
+  box-shadow: var(--shadow);
+}
+
+.rp-btn-delete {
+  display: block;
+  margin: 1.25rem;
+  background: var(--white);
+  border: 2px solid var(--red);
+  color: var(--red);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 0.65rem 1.5rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--red);
+  transition: all 0.12s;
+}
+
+.rp-btn-delete:hover {
+  background: var(--red);
+  color: var(--white);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--black);
+}
+
+.rp-delete-confirm {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.rp-confirm-msg {
+  font-family: var(--font-vt);
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: var(--red);
+}
+
+.rp-confirm-form {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.rp-btn-delete-confirm {
+  background: var(--red);
+  border: 2px solid var(--black);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.6rem 1.25rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--black);
+  transition: all 0.12s;
+}
+
+.rp-btn-delete-confirm:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--black);
+}
+
+.rp-btn-cancel {
+  background: var(--white);
+  border: var(--border);
+  color: var(--black);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.6rem 1.25rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--black);
+  transition: all 0.12s;
+}
+
+.rp-btn-cancel:hover {
+  background: var(--black);
+  color: var(--white);
+  transform: translate(-1px, -1px);
+}

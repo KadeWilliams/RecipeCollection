@@ -1,0 +1,150 @@
+/*
+.recipe-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}*/
+
+.recipes-page {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header */
+.recipes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: var(-border-thick);
+  flex-wrap: wrap;
+}
+
+.header-tag {
+  font-family: var(-font-vt);
+  font-size: 1rem;
+  color: var(-red);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.25rem;
+}
+
+.recipes-title {
+  font-family: var(-font-display);
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  color: var(-black);
+}
+
+.header-right {
+  text-align: right;
+}
+
+.recipes-count {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.count-num {
+  font-family: var(-font-display);
+  font-size: 5rem;
+  line-height: 1;
+  color: var(-yellow);
+  -webkit-text-stroke: 3px var(-black);
+}
+
+.count-label {
+  font-family: var(-font-vt);
+  font-size: 1.1rem;
+  line-height: 1.2;
+  text-align: left;
+  letter-spacing: 0.05em;
+  padding-bottom: 0.5rem;
+}
+
+/* Grid */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.recipe-grid-item {
+  animation: cardIn 0.4s ease both;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Loading */
+.recipes-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  gap: 0.5rem;
+  font-family: var(-font-vt);
+  font-size: 2.5rem;
+  color: var(-black);
+  letter-spacing: 0.2em;
+}
+
+.loading-dots span {
+  display: inline-block;
+  animation: blink 1.2s step-start infinite;
+}
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Empty state */
+.recipes-empty {
+  text-align: center;
+  padding: 5rem 2rem;
+  border: var(-border-thick);
+  background: var(-black);
+  color: var(-white);
+  box-shadow: var(-shadow-lg);
+}
+
+.empty-code {
+  font-family: var(-font-display);
+  font-size: 8rem;
+  color: var(-red);
+  line-height: 1;
+}
+
+.empty-msg {
+  font-family: var(-font-vt);
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+}
+
+.empty-msg span {
+  color: var(-yellow);
+}

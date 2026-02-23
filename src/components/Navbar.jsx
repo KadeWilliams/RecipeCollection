@@ -1,44 +1,57 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap'
+/*import React from 'react'
+import { Link } from 'react-router-dom'
 
-const BasicNavbar = () => {
+const Navbar = () => {
   return (
-    <Navbar expand="lg" bg="dark" data-bs-theme="dark">
-      <Container>
-        <Navbar.Brand href="#home">
-            <Nav.Link as={NavLink} to="/">
-                Recipe Collection
-            </Nav.Link>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav variant="pills" className="me-auto" defaultActiveKey="/">
-            <Nav.Item>
-                <Nav.Link as={NavLink} to="/">Home</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-                <Nav.Link as={NavLink} to="/asdf">Link</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-                <Nav.Link as={NavLink} to="/search">Search</Nav.Link>
-            </Nav.Item>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
+      <Link to="/" style={{alignSelf: 'center'}}>Recipe Collection</Link>
+      <ul>
+        <li style={{listStyle: 'none'}}><Link to="/recipes/add">Add Recipe</Link></li>
+      </ul>
+    </div>
   )
 }
 
-export default BasicNavbar
+export default Navbar*/
+
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import "../styles/Navbar.css";
+
+const Navbar = () => {
+  const location = useLocation();
+
+  return (
+    <nav className="brutalist-nav">
+      <div className="nav-ticker">
+        <span className="ticker-text">
+          ★ RECIPE COLLECTION ★ COOK SOMETHING ★ EAT WELL ★ RECIPE COLLECTION ★
+          COOK SOMETHING ★ EAT WELL ★ RECIPE COLLECTION ★ COOK SOMETHING ★ EAT
+          WELL ★
+        </span>
+      </div>
+      <div className="nav-main">
+        <Link to="/" className="nav-logo">
+          <span className="logo-bracket">[</span>
+          RECIPE
+          <br />
+          COLLECTION
+          <span className="logo-bracket">]</span>
+        </Link>
+        <div className="nav-links">
+          <Link
+            to="/"
+            className={`nav-link ${location.pathname === "/" ? "active" : ""}`}
+          >
+            ◈ INDEX
+          </Link>
+          <Link to="/recipes/add" className="nav-link nav-link--cta">
+            + ADD RECIPE
+          </Link>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
