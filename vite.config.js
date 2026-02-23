@@ -2,7 +2,13 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({mode}) => {
+  const isProd = mode === 'production';
+
+  const apiTarget = isProd 
+    ? 'https://recipecollectionapi-production.up.railway.app/' 
+    : 'https://localhost:7014'
+  return {
   plugins: [react()],
   server: {
     port: 3000,
@@ -13,10 +19,12 @@ export default defineConfig({
       //  rewrite: (path) => path.replace(/^\/api/,'')
       //}
       "/api": {
-        target: "https://localhost:7014",
+        target: apiTarget,
         changeOrigin: true,
         secure: false,
       },
     },
   },
-});
+}
+}
+);
