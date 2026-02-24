@@ -5,8 +5,8 @@ import react from "@vitejs/plugin-react";
 export default defineConfig(({ mode }) => {
   const isProd = mode === 'production';
 
-  const apiTarget = isProd
-    ? 'https://recipecollectionapi-production.up.railway.app/'
+  const apiTarget = isProd 
+    ? 'https://recipecollectionapi-production.up.railway.app'
     : 'http://localhost:7014'
   return {
     plugins: [react()],
