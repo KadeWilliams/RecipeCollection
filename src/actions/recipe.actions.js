@@ -8,7 +8,7 @@ const deleteRecipe = async (previousState, formData) => {
   const id = formData.get("id");
 
   try {
-    const _res = await fetch(`/api/recipes/${id}`, {
+    const _res = await fetch(`${import.meta.env.VITE_API_URL}/api/recipes/${id}`, {
       method: "DELETE",
       header: {
         "Content-Type": "application/json",
@@ -28,7 +28,7 @@ const deleteRecipe = async (previousState, formData) => {
 const editRecipe = async (previousState, recipeData) => {
   try {
     console.log(recipeData);
-    const res = await fetch(`/api/recipes`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/recipes`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const editRecipe = async (previousState, recipeData) => {
 const addRecipe = async (previousState, recipeData) => {
   try {
     console.log(recipeData);
-    const res = await fetch("/api/recipes", {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/recipes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
